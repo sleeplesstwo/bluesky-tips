@@ -31,14 +31,14 @@ nav {
 
   height: 3.5rem;
   width: 100%;
-  background-color: black;
-  color: lightgray;
+  background-color: deepskyblue;
+  color: black;
 }
 
 nav > a {
   display: block;
   padding: 1rem 2rem;
-  color: lightgray;
+  color: black;
 }
 nav > a:hover {
   color: aqua;
@@ -55,8 +55,10 @@ main > h1 {
   margin: 2rem 0 0.5rem;
 }
 
-main > img {
+main p img {
   border-radius: 5px;
+  border: thin solid;
+  margin: 0 auto;
 }
 
 footer {
