@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">    <link rel="stylesheet" href="/assets/css/style.css"">
+    <title>Sleepless - Feeds</title>
+  </head>
+  </head>
+  <body>
+    <header>
+	<nav>
+		<a href="/">Home</a>
+		<a href="/feeds">Feeds</a>
+	</nav>
+</header>
+    <main>
+    <h1>What is a Feed?</h1>
+<p>At is most basic a feed is simply a collection of posts that is created via a set of rules.  These rules can be as simple as &quot;All posts with the word art&quot; to as complicated as something like &quot;Get all posts with images, run each image through a machine learning moddel to determine if there is a cat in the picture and if so add it to the feed&quot;</p>
+<h1>Creating a Feed</h1>
+<p>There are a couple services which will help you with creating and hosting your feed.</p>
+<ul>
+<li><a href="https://skyfeed.app/">Skyfeed</a></li>
+<li><a href="https://blueskyfeedcreator.com/">Bluesky Feed Creator</a></li>
+</ul>
+<p>Both are good options this example will use Skyfeed as the free tier of Bluesky Feed Creator only retains the last 100 posts, however if you are running a bigger feed and want to see stats like how many views it gets or how many posts per day match it Bluesky Feed Creator can provide that.  The first feed we will be creating is one I've repeatedly seen interest in from artists which is a feed of their own art posts.</p>
+<h2>First Steps - Creating Your App Password</h2>
+<p>First you will want to create a new app password, these are special passwords that you can use to allow other sites access without giving them your normal login.  You can do this by going to your Settings in Bluesky and clicking on App Passwords under Advanced.</p>
+<p><img src="/assets/images/BskySettings.png" alt="A screenshot of the Bluesky Settings page showing the App Passwords option"></p>
+<p>Next you will click &quot;Add App Password&quot;.  Name it Skyfeed so you know what it was for, this is helpful if Skyfeed was ever compromised you could delete the App password and create a new one without changing your actual account password.</p>
+<p><img src="/assets/images/CreateAppPassword1.png" alt="A screenshot showing the Create App Password dialog which reads &quot;Please enter a unique name for this App Password or use our randomly generated one&quot; The name used is &quot;Skyfeed&quot;. There is a unchecked box next to a setting &quot;Allow access to your direct messages&quot;. The cursor is over a large blue button labeled &quot;Create App Password&quot;."></p>
+<p>After you've clicked create you will be given a random string of characters, copy this down somewhere handy for now since you will not be able to view it again.</p>
+<p><img src="/assets/images/CreateAppPassword2.png" alt="A screenshot showing the the new app password which reads. &quot;Here is your app password.Use this to sign into the other app along with your handle.  For security reasons, you won't be able to view this again. If you lose this password, you'll need to generate a new one.&quot; The app password in the screenshot is obscured by a solid box."></p>
+<h2>Logging Into Skyfeed.app</h2>
+<p>Now that you have your app password you are ready to sign into <a href="https://skyfeed.app">Skyfeed</a>.  Enter your info and your app password into the sign in screen.</p>
+<p><img src="/assets/images/SkyfeedSignIn.png" alt="A screenshot showing the Skyfeed login screen.  The field labeled &quot;Service&quot; is filled in with &quot;bsky.social&quot; the field labeled &quot;Username or email address&quot; is filed in with &quot;sleeplessone&quot;"></p>
+<h2>Creating the Feed - &quot;My Art Feed&quot;</h2>
+<p>Once you're signed in click on the Feed Builder in the leftmost column. And you should get something like the following.  If not, click the drop down at the top of the column to create a new feed.</p>
+<p><img src="/assets/images/SkyFeedFeedBuilder1.png" alt="A screenshot showing the main Skyfeed page, the Feed Builder is selected in the left column, in the next column is the Skyfeed Builder UI showing the Visual Editor and a few blocks."></p>
+<p>First, give your feed a name.  This is what will show up in the Feeds list both on your profile and when someone searches so you will probably want to include your handle in the feed name.  Next we want to change what we are inputting to the feed.  By default Skyfeed inputs the entire Bluesky network for the last 24 hours we want to change it to just include your own account.  Change the Input to Single User and click the &quot;Select yourself&quot; button that appears.  For now we will only include posts, however if you want to include Reposts you will have to use the RegEx filter or it will include anything you Repost even if the original source isn't you.  The feed preview window will show an error about the feed being empty and that's ok for now.</p>
+<p><img src="/assets/images/SkyFeedFeedBuilder2.png" alt="A screenshot showing the Feed Builder UI, Input is set to Single user and the User DID field shows a value autopopulated by clicking the Select yourself button above.  Below the User DID is a section labeled &quot;Include&quot; with &quot;Posts&quot; selected and &quot;Replies&quot; and &quot;Reposts&quot; are unselected."></p>
+<p>The next default block SkyFeed added was &quot;Remove if Item is Reply&quot;.  Since we are only including posts and not replies this block is redundant, but instead of removing it we will change it to remove posts that don't include images.  Click the dropdown menu labeled &quot;Item&quot; and change it to &quot;Image Count&quot; and make sure the second part is &quot;equals 0&quot;</p>
+<p><img src="/assets/images/SkyFeedFeedBuilder3.png" alt="A screenshot showing the Feedbuilder UI with the block &quot;Remove if Image Count equals 0&quot;"></p>
+<p>The last step is to decide if you want all posts with images or just specific ones.  If you want to include specific images only decide on word or hashtag that you will include in every post or in the alt text and we will use this in the default RegEx block.  If you just want to include all image posts you can simply delete the RegEx block by clicking the red X.</p>
+<p>If you do want to filter your images then inside the RegEx block enter the text you want to match.  If you want to match multiple hashtags or words/phrases seperate each by a | but don't include any spaces on either side of it.  Also select Post Text and Image Alt Text for your targets and leave Invert unchecked as that would remove posts that match.  The following example would match posts with #Satisfactory or the phrase &quot;Shadow of the Erdtree&quot;.</p>
+<p><img src="/assets/images/SkyFeedFeedBuilder4.png" alt="A screenshot showing the Feedbuilder UI with the Regex block set to &quot;#Satisfactory|Shadow of the Erdtree&quot; the target is set to &quot;Post Text&quot; and &quot;Image Alt Text&quot;"></p>
+<p>Lastly choose how you want the results sorted.  The default of Creation Date (descending) is typically what you would want.  But you could also sort it by Like Count or use the HN Ranking which orders them in a combination of post age and number of likes.</p>
+<p>Lastly you need to click the Publish Feed button at the top of the column.  After clicking you'll be given the option to upload an avatar image for the feed as well as enter a description.  You can also select a license for the feed.  Note that this is the license for the feed itself, not the content of the feed.  Leaving it on the default of EUPL-1.2 means someone else can use your feed and modify it for their own use, for example maybe they want your feed in random order.</p>
+<p><img src="/assets/images/SkyFeedFeedPublishDialog.png" alt="Screenshot showing the Publish Feed dialog titled &quot;Publish Sleeplessone's Images&quot;.  It has a button to upload an avatar image and a description box to fill out.  Below is information about the license options that reads &quot;When you publish a feed using the SkyFeed Builder, the source code (building blocks) is embedded in the public feed record.  You can license the code with the EUPL (similar to GPL) to allow other builders to remix and improve your feed, as long as they also release their feed with a compatible open-source license.&quot;  The selected license is EUPL-1.2 (allow remixes with same license) and at the bottom are Close and Publish buttons."></p>
+<p>That's it, your feed should be published and available for use.</p>
+<h2>Creating an &quot;Art from Artists I Like&quot; Feed</h2>
+<p>This can be done using the method above with a few caveats.  Mainly that when not using Single User Skyfeed will only maintain up to 7 days worth of posts.  And second since you're inputting someone elses posts you won't reliably be able to use the RegEx block so you will just get posts with any images.</p>
+<p>First you will want to create a list in Bluesky by clicking on Lists and clicking New.  Fill out the info to start your list.  Then comes the tedious part, you will need to go to each user's profile page click the 3 dot menu, select Add to Lists and then click Add next to the list you just created.</p>
+<p><img src="/assets/images/AddToList.png" alt="Screenshot showing the Add to Lists menu that reads &quot;Update Sleeplessone in Lists&quot; and Example List - User list by you with the Add button next to it."></p>
+<p>You can now follow the guide above but for Input you'll select your List instead of using a single user input.  You will also need to remove the RegEx block since they are not your posts you can't guarantee what text will be in them.  The final result should look something like this.</p>
+<p><img src="/assets/images/ImagesFromFollows.png" alt="Screenshot showing the Feedbuilder UI setup with the following blocks Input List 7 days, Remove if Image Count equals 0 and Sort by Creation Date (descenting)"></p>
+
+    </main>
+    <footer>
+    &copy; 2024 | Sleeplessone
+</footer>
+  </body>
+</html>
