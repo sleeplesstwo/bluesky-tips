@@ -1,5 +1,6 @@
 ---
 layout: base
+templateEngineOverride: njk,md
 title: "Feeds"
 ---
 
