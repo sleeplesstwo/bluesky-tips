@@ -25,11 +25,11 @@ First you will want to create a new app password, these are special passwords th
 
 Next you will click "Add App Password".  Name it Skyfeed so you know what it was for, this is helpful if Skyfeed was ever compromised you could delete the App password and create a new one without changing your actual account password.
 
-![A screenshot showing the Create App Password dialog which reads "Please enter a unique name for this App Password or use our randomly generated one" The name used is "Skyfeed". There is a unchecked box next to a setting "Allow access to your direct messages". The cursor is over a large blue button labeled "Create App Password".]('{{ /assets/images/CreateAppPassword1.png | url }}')
+![A screenshot showing the Create App Password dialog which reads "Please enter a unique name for this App Password or use our randomly generated one" The name used is "Skyfeed". There is a unchecked box next to a setting "Allow access to your direct messages". The cursor is over a large blue button labeled "Create App Password".]({{ '/assets/images/CreateAppPassword1.png' | url }})
 
 After you've clicked create you will be given a random string of characters, copy this down somewhere handy for now since you will not be able to view it again.
 
-![A screenshot showing the the new app password which reads. "Here is your app password.Use this to sign into the other app along with your handle.  For security reasons, you won't be able to view this again. If you lose this password, you'll need to generate a new one." The app password in the screenshot is obscured by a solid box.]('{{ /assets/images/CreateAppPassword2.png | url }}')
+![A screenshot showing the the new app password which reads. "Here is your app password.Use this to sign into the other app along with your handle.  For security reasons, you won't be able to view this again. If you lose this password, you'll need to generate a new one." The app password in the screenshot is obscured by a solid box.]({{ '/assets/images/CreateAppPassword2.png' | url }})
 
 ## Logging Into Skyfeed.app
 
